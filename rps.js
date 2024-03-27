@@ -1,20 +1,29 @@
+
+let playerChoice;
+
 //ask player for rock, paper, or scissors
 function getPlayerChoice(){
-    let playerChoice = promt("Choose Wisely");
+    playerChoice = prompt("Choose Wisely");
+    return playerChoice;
 }
+
+let computerChoice;
 
 //computer picks rock, paper, or scissors
 function getComputerChoice(){
-    let randomInt = Math.floor(Math.random() * 3)
-    let computerChoice
+    let randomInt = Math.floor(Math.random() * 3);
+    //console.log(randomInt);
     
-    if (randomInt <2) {
+    
+    if (randomInt >=0 && randomInt<1) {
         computerChoice = "Rock";
 
-    } else if (randomInt > 2 && randomInt <3) {
+    } else if (randomInt >=1 && randomInt <2) {
         computerChoice = "Paper";
 
-    } else {computerChoice = "Scissors"}
+    } else {computerChoice = "Scissors"};
+
+    return computerChoice;
 }
 
 
@@ -47,8 +56,8 @@ function playRound(playerChoice,computerChoice) {
     
 }
 
-function playGame () {
-    getPlayerChoice()
-    getComputerChoice()
+function playGame() {
+    getPlayerChoice();
+    getComputerChoice();
     playRound();
 }
