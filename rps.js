@@ -1,13 +1,7 @@
-
-let playerChoice;
-
 //ask player for rock, paper, or scissors
 function getPlayerChoice(){
-    playerChoice = prompt("Choose Wisely");
-    return playerChoice;
+    return prompt("Choose Wisely");
 }
-
-let computerChoice;
 
 //computer picks rock, paper, or scissors
 function getComputerChoice(){
@@ -16,19 +10,25 @@ function getComputerChoice(){
     
     
     if (randomInt >=0 && randomInt<1) {
-        computerChoice = "Rock";
+        return "Rock";
 
     } else if (randomInt >=1 && randomInt <2) {
-        computerChoice = "Paper";
+        return "Paper";
 
-    } else {computerChoice = "Scissors"};
-
-    return computerChoice;
+    } else {return "Scissors"};
 }
 
 
 //player and computer choices compared to determine winner
 function playRound(playerChoice,computerChoice) {
+    
+    playerChoice = getPlayerChoice();
+    console.log(`Player threw ${playerChoice}`);
+
+    computerChoice = getComputerChoice();
+    console.log(`Computer threw ${computerChoice}`);
+
+
     if (playerChoice == computerChoice) {
         return "Draw";
 
@@ -57,7 +57,7 @@ function playRound(playerChoice,computerChoice) {
 }
 
 function playGame() {
-    getPlayerChoice();
-    getComputerChoice();
     playRound();
+    console.log(playRound());
+    return;
 }
