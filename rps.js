@@ -1,6 +1,6 @@
 //ask player for rock, paper, or scissors
 function getPlayerChoice(){
-    return prompt("Choose Wisely");
+    return document.getElementById("playerInput").value.toLowerCase();
 }
 
 //computer picks rock, paper, or scissors
@@ -10,12 +10,12 @@ function getComputerChoice(){
     
     
     if (randomInt >=0 && randomInt<1) {
-        return "Rock";
+        return "rock";
 
     } else if (randomInt >=1 && randomInt <2) {
-        return "Paper";
+        return "paper";
 
-    } else {return "Scissors"};
+    } else {return "scissors"};
 }
 
 
@@ -32,22 +32,22 @@ function playRound(playerChoice,computerChoice) {
     if (playerChoice == computerChoice) {
         return "Draw";
 
-    } else if (playerChoice == "Rock" && computerChoice == "Scissors") {
+    } else if (playerChoice == "rock" && computerChoice == "scissors") {
         return "Winner";
 
-    } else if (playerChoice == "Scissors" && computerChoice == "Paper") {
+    } else if (playerChoice == "scissors" && computerChoice == "paper") {
         return "Winner";
 
-    } else if (playerChoice == "Paper" && computerChoice == "Rock") {
+    } else if (playerChoice == "paper" && computerChoice == "rock") {
         return "Winner";
 
-    } else if (playerChoice == "Rock" && computerChoice == "Scissors") {
+    } else if (playerChoice == "rock" && computerChoice == "paper") {
         return "Loser";
         
-    } else if (playerChoice == "Scissors" && computerChoice == "Rock") {
+    } else if (playerChoice == "scissors" && computerChoice == "rock") {
         return "Loser";
 
-    } else if (playerChoice == "Paper" && computerChoice == "Scissors") {
+    } else if (playerChoice == "paper" && computerChoice == "scissors") {
         return "Loser";
 
     } else {
@@ -57,7 +57,6 @@ function playRound(playerChoice,computerChoice) {
 }
 
 function playGame() {
-    playRound();
     console.log(playRound());
     return;
 }
