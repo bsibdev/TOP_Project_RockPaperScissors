@@ -60,3 +60,26 @@ function playGame() {
     console.log(playRound());
     return;
 }
+
+
+const rock = document.querySelector("#rock");
+const paper = document.querySelector("#paper");
+const scissors = document.querySelector("#scissors");
+
+document.addEventListener('click',(event) => {
+    const target = event.target;
+    switch(target.id) {
+        case 'rock' :
+            playerChoice = "rock";
+            playRound(playerChoice);
+            break;
+        case 'paper' :
+            playerChoice = "paper";
+            playRound(playerChoice);
+            break; 
+        case 'scissors' :
+            playerChoice = "scissors"
+            playRound(playerChoice);
+            break;
+    }
+})
