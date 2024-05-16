@@ -79,11 +79,13 @@ function playRound(playerChoice,computerChoice) {
     pTally.textContent = `Player Score: ${playerTally}`;
     cTally.textContent = `Computer Score: ${computerTally}`;
 
+    /*Display running score*/    
     /*appendChild throwing "not a node" error*/
     results.appendChild(playerTally);
     results.appendChild(computerTally);
     
 }
+/*Announce winner after 5 points accumulated on either side*/
 /*functionality needs to be tested after tallying is setup correctly*/
 function decideGame(){
     if (playerTally | computerTally < 5) {
@@ -99,6 +101,8 @@ function decideGame(){
     } else {
         return "Play Again"}
 }
+
+/*add custom events to change the styles in response to player winning/losing rounds.*/
 
 /*function playGame() {
     console.log(playRound());
