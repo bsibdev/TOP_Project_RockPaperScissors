@@ -1,7 +1,8 @@
 //ask player for rock, paper, or scissors
-function getPlayerChoice(){
+
+/*function getPlayerChoice(){
     return document.getElementById("playerInput").value.toLowerCase();
-}
+}*/
 
 //computer picks rock, paper, or scissors
 function getComputerChoice(){
@@ -22,45 +23,85 @@ function getComputerChoice(){
 //player and computer choices compared to determine winner
 function playRound(playerChoice,computerChoice) {
     
-    playerChoice = getPlayerChoice();
+    /*playerChoice = getPlayerChoice();*/
     console.log(`Player threw ${playerChoice}`);
 
     computerChoice = getComputerChoice();
     console.log(`Computer threw ${computerChoice}`);
 
-
+    const results = document.querySelector('#results');
+    const roundResults = document.querySelector('#roundResults');
+    const newLine = document.createElement('br');
+    
+    
+    let winner = '';
     if (playerChoice == computerChoice) {
-        return "Draw";
+        winner = "Draw";
 
     } else if (playerChoice == "rock" && computerChoice == "scissors") {
-        return "Winner";
+        winner = "Player";
 
     } else if (playerChoice == "scissors" && computerChoice == "paper") {
-        return "Winner";
+        winner = "Player";
 
     } else if (playerChoice == "paper" && computerChoice == "rock") {
-        return "Winner";
+        winner = "Player";
 
     } else if (playerChoice == "rock" && computerChoice == "paper") {
-        return "Loser";
+        winner = "Computer";
         
     } else if (playerChoice == "scissors" && computerChoice == "rock") {
-        return "Loser";
+        winner = "Computer";
 
     } else if (playerChoice == "paper" && computerChoice == "scissors") {
-        return "Loser";
+        winner = "Computer";
 
     } else {
         return "Try Again";
     }
+    roundResults.textContent = `Computer threw ${computerChoice} | Player threw ${playerChoice} | Round goes to ${winner}`;
+    
+    let playerTally;
+    const pTally = document.createElement('h2');
+    let computerTally;
+    const cTally = document.createElement('h2');
+    
+    if(winner === "Draw") {
+        return;
+    } else if (winner === "Player") {
+        playerTally++;
+    } else if (winner === "Computer") {
+        computerTally++;
+    } else {
+        return "Error";
+    }
+
+    pTally.textContent = `Player Score: ${playerTally}`;
+    cTally.textContent = `Computer Score: ${computerTally}`; 
+    results.appendChild(playerTally);
+    results.appendChild(computerTally);
     
 }
-
+function decideGame(){
+    if (playerTally | computerTally < 5) {
+        return;
+    } else if (playerTally >= 5) {
+        playerTally = 0;
+        computerTally = 0;
+        return "Player Wins";
+    } else if (computerTally >= 5) {
+        playerTally = 0;
+        computerTally = 0;
+        return "Player Loses";
+    } else {
+        return "Play Again"}
+}
 function playGame() {
     console.log(playRound());
     return;
 }
 
+/*new ui*/
 
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
@@ -83,3 +124,4 @@ document.addEventListener('click',(event) => {
             break;
     }
 })
+
