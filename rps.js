@@ -77,11 +77,14 @@ function playRound(playerChoice,computerChoice) {
     }
 
     pTally.textContent = `Player Score: ${playerTally}`;
-    cTally.textContent = `Computer Score: ${computerTally}`; 
+    cTally.textContent = `Computer Score: ${computerTally}`;
+
+    /*appendChild throwing "not a node" error*/
     results.appendChild(playerTally);
     results.appendChild(computerTally);
     
 }
+/*functionality needs to be tested after tallying is setup correctly*/
 function decideGame(){
     if (playerTally | computerTally < 5) {
         return;
@@ -96,10 +99,11 @@ function decideGame(){
     } else {
         return "Play Again"}
 }
-function playGame() {
+
+/*function playGame() {
     console.log(playRound());
     return;
-}
+}*/
 
 /*new ui*/
 
