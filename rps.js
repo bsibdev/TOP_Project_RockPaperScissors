@@ -111,10 +111,12 @@ function playRound(playerChoice,computerChoice) {
         alert("You Win");
         playerTally = 0;
         computerTally = 0;
+        roundResults.textContent = '';
     } else if (computerTally >= 5) {
         alert("You Lose");
         playerTally = 0;
         computerTally = 0;
+        roundResults.textContent = '';
     } else {
         console.log("Keep Playing")}
 /*}*/
