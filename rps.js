@@ -19,19 +19,35 @@ function getComputerChoice(){
     } else {return "scissors"};
 }
 
+const pTally = document.createElement('h2');
+pTally.setAttribute('id','playerScore')
+const cTally = document.createElement('h2');
+cTally.setAttribute('id','computerScore')
+const results = document.querySelector('#results');
+
+/*Display running score*/
+pTally.textContent = `Player Score: 0`;
+cTally.textContent = `Computer Score: 0`;
+
+results.appendChild(pTally);
+results.appendChild(cTally);
+
+let playerTally = 0;
+let computerTally = 0;
+    
 
 //player and computer choices compared to determine winner
 function playRound(playerChoice,computerChoice) {
-    
+    /*test if tally input matches output (changes to undefined)
+    console.log(`${playerTally} ${computerTally}`);
     /*playerChoice = getPlayerChoice();*/
     console.log(`Player threw ${playerChoice}`);
 
     computerChoice = getComputerChoice();
     console.log(`Computer threw ${computerChoice}`);
 
-    const results = document.querySelector('#results');
     const roundResults = document.querySelector('#roundResults');
-    const newLine = document.createElement('br');
+    /*const newLine = document.createElement('br');*/
     
     
     let winner = '';
@@ -61,31 +77,29 @@ function playRound(playerChoice,computerChoice) {
     }
     roundResults.textContent = `Computer threw ${computerChoice} | Player threw ${playerChoice} | Round goes to ${winner}`;
     
-    let playerTally;
-    const pTally = document.createElement('h2');
-    let computerTally;
-    const cTally = document.createElement('h2');
     
+    
+
     if(winner === "Draw") {
         return;
     } else if (winner === "Player") {
         playerTally++;
+        console.log(playerTally);
     } else if (winner === "Computer") {
         computerTally++;
+        console.log(computerTally);
     } else {
         return "Error";
     }
 
+    const pTally = document.querySelector('#playerScore');
     pTally.textContent = `Player Score: ${playerTally}`;
+    const cTally = document.querySelector('#computerScore');
     cTally.textContent = `Computer Score: ${computerTally}`;
 
-    /*Display running score*/    
-    /*appendChild throwing "not a node" error*/
-    results.appendChild(playerTally);
-    results.appendChild(computerTally);
     
-}
-/*Announce winner after 5 points accumulated on either side*/
+
+    /*Announce winner after 5 points accumulated on either side*/
 /*functionality needs to be tested after tallying is setup correctly*/
 function decideGame(){
     if (playerTally | computerTally < 5) {
@@ -101,6 +115,9 @@ function decideGame(){
     } else {
         return "Play Again"}
 }
+decideGame(playerTally,computerTally);
+}
+
 
 /*add custom events to change the styles in response to player winning/losing rounds.*/
 
