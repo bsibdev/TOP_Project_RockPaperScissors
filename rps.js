@@ -38,6 +38,8 @@ let computerTally = 0;
 
 //player and computer choices compared to determine winner
 function playRound(playerChoice,computerChoice) {
+    const resultImage = document.querySelector('#result-image');
+    resultImage.src = "";
     /*test if tally input matches output (changes to undefined)
     console.log(`${playerTally} ${computerTally}`);
     /*playerChoice = getPlayerChoice();*/
@@ -104,16 +106,17 @@ function playRound(playerChoice,computerChoice) {
     
     
 
+
 /*Announce winner after 5 points accumulated on either side*/
 /*Clear scores after winner decided*/
 /*function decideGame(playerTally,computerTally){*/
     if (playerTally >= 5) {
-        alert("You Win");
+        resultImage.src = "img/win.webp";
         playerTally = 0;
         computerTally = 0;
         roundResults.textContent = '';
     } else if (computerTally >= 5) {
-        alert("You Lose");
+        resultImage.src = "img/lose.webp";
         playerTally = 0;
         computerTally = 0;
         roundResults.textContent = '';

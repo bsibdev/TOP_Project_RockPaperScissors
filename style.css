@@ -40,3 +40,25 @@
     flex-direction:column;
     align-items:center;
 }
+
+.banner {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#result-image {
+    height:500px;
+}
+
+.header {
+    display:flex;
+    justify-content:center;
+    background-color:black;
+    color:white;
+}
+
+* {
+    user-select:none;
+    -webkit-user-drag:none;
+}
