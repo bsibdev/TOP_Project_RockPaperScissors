@@ -51,25 +51,34 @@ function playRound(playerChoice,computerChoice) {
     
     
     let winner = '';
+    const rock = document.querySelector("#rock");
+    const paper = document.querySelector("#paper");
+    const scissors = document.querySelector("#scissors");
     if (playerChoice == computerChoice) {
         winner = "Draw";
 
     } else if (playerChoice == "rock" && computerChoice == "scissors") {
         winner = "Player";
+        rock.style.backgroundColor = "rgb(0,255,25)";
 
     } else if (playerChoice == "scissors" && computerChoice == "paper") {
         winner = "Player";
+        scissors.style.backgroundColor = "rgb(0,255,25)";
 
     } else if (playerChoice == "paper" && computerChoice == "rock") {
         winner = "Player";
+        paper.style.backgroundColor = "rgb(0,255,25)";
 
     } else if (playerChoice == "rock" && computerChoice == "paper") {
         winner = "Computer";
+        rock.style.backgroundColor = "rgb(255,0,0)";
         
     } else if (playerChoice == "scissors" && computerChoice == "rock") {
         winner = "Computer";
+        scissors.style.backgroundColor = "rgb(255,0,0)";
 
     } else if (playerChoice == "paper" && computerChoice == "scissors") {
+        paper.style.backgroundColor = "rgb(255,0,0)";
         winner = "Computer";
 
     } else {
@@ -99,11 +108,11 @@ function playRound(playerChoice,computerChoice) {
 /*Clear scores after winner decided*/
 /*function decideGame(playerTally,computerTally){*/
     if (playerTally >= 5) {
-        alert("Player Wins");
+        alert("You Win");
         playerTally = 0;
         computerTally = 0;
     } else if (computerTally >= 5) {
-        alert("Player Loses");
+        alert("You Lose");
         playerTally = 0;
         computerTally = 0;
     } else {
@@ -133,6 +142,40 @@ const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 
+document.addEventListener('mouseover', (event) => {
+    const target = event.target;
+    switch (target.id) {
+        case 'rock' :
+            rock.style.backgroundColor = "rgb(0, 255, 255)";
+            break;
+        case 'paper' :
+            paper.style.backgroundColor = "rgb(0, 255, 255)";
+            break; 
+        case 'scissors' :
+            scissors.style.backgroundColor = "rgb(0, 255, 255)";
+            break;
+    }
+
+
+})
+
+document.addEventListener('mouseout', (event) => {
+    const target = event.target;
+    switch (target.id) {
+        case 'rock' :
+            rock.style.backgroundColor = "brown";
+            break;
+        case 'paper' :
+            paper.style.backgroundColor = "white";
+            break; 
+        case 'scissors' :
+            scissors.style.backgroundColor = "gray";
+            break;
+    }
+
+
+})
+
 document.addEventListener('click',(event) => {
     const target = event.target;
     switch(target.id) {
@@ -145,7 +188,7 @@ document.addEventListener('click',(event) => {
             playRound(playerChoice);
             break; 
         case 'scissors' :
-            playerChoice = "scissors"
+            playerChoice = "scissors";
             playRound(playerChoice);
             break;
     }
