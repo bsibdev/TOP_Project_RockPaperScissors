@@ -92,30 +92,31 @@ function playRound(playerChoice,computerChoice) {
         return "Error";
     }
 
-    const pTally = document.querySelector('#playerScore');
+    
+    
+
+/*Announce winner after 5 points accumulated on either side*/
+/*Clear scores after winner decided*/
+/*function decideGame(playerTally,computerTally){*/
+    if (playerTally >= 5) {
+        alert("Player Wins");
+        playerTally = 0;
+        computerTally = 0;
+    } else if (computerTally >= 5) {
+        alert("Player Loses");
+        playerTally = 0;
+        computerTally = 0;
+    } else {
+        console.log("Keep Playing")}
+/*}*/
+
+/*decideGame(playerTally,computerTally);*/
+
+const pTally = document.querySelector('#playerScore');
     pTally.textContent = `Player Score: ${playerTally}`;
     const cTally = document.querySelector('#computerScore');
     cTally.textContent = `Computer Score: ${computerTally}`;
 
-    
-
-    /*Announce winner after 5 points accumulated on either side*/
-/*functionality needs to be tested after tallying is setup correctly*/
-function decideGame(){
-    if (playerTally | computerTally < 5) {
-        return;
-    } else if (playerTally >= 5) {
-        playerTally = 0;
-        computerTally = 0;
-        return "Player Wins";
-    } else if (computerTally >= 5) {
-        playerTally = 0;
-        computerTally = 0;
-        return "Player Loses";
-    } else {
-        return "Play Again"}
-}
-decideGame(playerTally,computerTally);
 }
 
 
